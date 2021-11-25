@@ -19,9 +19,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // generationg three base status for application transcations accepted, pending and rejected
-        Status::factory(['title' => 'accepted'])->create();
-        Status::factory(['title' => 'pending'])->create();
-        Status::factory(['title' => 'rejected'])->create();
+        Status::factory(['id' => 1, 'title' => 'accepted'])->create();
+        Status::factory(['id' => 2, 'title' => 'pending'])->create();
+        Status::factory(['id' => 3, 'title' => 'rejected'])->create();
 
         // generating admin user
         User::factory([
