@@ -1,4 +1,4 @@
-<form>
+<form wire:submit.prevent="store">
     @error('transaction.amount')
     <div class="alert alert-danger" role="alert">
         {{ $message }}
@@ -24,11 +24,5 @@
     @enderror
     <div class="mb-3">
         <img src="{{Storage::url($transaction->image)}}" class="img-fluid"><label class="form-label"></label>
-    </div>
-    <div class="row">
-        <div class="col-sm-12 text-center m-b-5">
-            <button type="button" class="btn btn-danger btn-md" wire:click="reject">Reject</button>
-            <button type="button" class="btn btn-primary btn-md" wire:click="accept">Accept</button>
-        </div>
     </div>
 </form>

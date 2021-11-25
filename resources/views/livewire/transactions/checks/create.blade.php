@@ -6,7 +6,7 @@
     @enderror
     <div class="mb-3">
         <label class="form-label">Amount</label>
-        <input wire:model="transaction.amount" class="form-control" placeholder="0.00">
+        <input wire:model="transaction.amount" class="form-control" type="number" step="0.01" placeholder="0.00">
     </div>
     @error('transaction.description')
     <div class="alert alert-danger" role="alert">
@@ -14,10 +14,10 @@
     </div>
     @enderror
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <label class="form-label">Description</label>
         <textarea wire:model="transaction.description" class="form-control" rows="3"></textarea>
     </div>
-    @error('transaction.image')
+    @error('image')
     <div class="alert alert-danger" role="alert">
         {{ $message }}
     </div>

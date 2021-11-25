@@ -13,7 +13,7 @@ class Topnav extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect()->route('login');
     }
 
     public function render()

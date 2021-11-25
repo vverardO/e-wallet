@@ -9,8 +9,12 @@ class Index extends Component
 {
     public function render()
     {
+        $transactions = Transaction::fromAuthenticatedUser()->checks();
+
         return view('livewire.transactions.checks.index', [
-            'checks' => Transaction::fromAuthenticatedUser()->checks()->accepted()->get(),
+            'acceptedChecks' => $transactions->clone()->accepted()->get(),
+            'rejectedChecks' => $transactions->clone()->rejected()->get(),
+            'pendingChecks' => $transactions->pending()->get(),
         ]);
     }
 }

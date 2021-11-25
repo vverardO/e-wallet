@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -33,13 +34,25 @@ class User extends Authenticatable
         'updated_at' => 'datetime',
     ];
 
-    public function transactions()
+    public function transactions(): HasMany
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function getBalanceAttribute(): float
+    {
+        $expenses = $this->transactions()->expenses()->sum('amount');
+        $checks = $this->transactions()->checks()->accepted()->sum('amount');
+        return (float) $checks - $expenses;
     }
 
     public function isNotAdmin(): bool
     {
         return !$this->is_admin;
+    }
+
+    public function isAdmin(): bool
+    {
+        return !!$this->is_admin;
     }
 }

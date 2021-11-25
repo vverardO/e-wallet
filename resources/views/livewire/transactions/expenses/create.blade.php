@@ -5,8 +5,8 @@
     </div>
     @enderror
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Amount</label>
-        <input wire:model="transaction.amount" class="form-control" placeholder="0.00">
+        <label class="form-label">Amount</label>
+        <input wire:model="transaction.amount" class="form-control" type="number" step="0.01" placeholder="0.00">
     </div>
     @error('transaction.date')
     <div class="alert alert-danger" role="alert">
@@ -14,7 +14,7 @@
     </div>
     @enderror
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Date</label>
+        <label class="form-label">Date</label>
         <input wire:model="transaction.date" type="date" class="form-control">
     </div>
     @error('transaction.description')

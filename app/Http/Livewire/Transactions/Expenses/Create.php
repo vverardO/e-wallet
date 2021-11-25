@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Transactions\Expenses;
 
 use App\Models\Transaction;
+use App\Rules\Purchase;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -10,19 +11,21 @@ class Create extends Component
 {
     public Transaction $transaction;
 
-    protected $rules = [
-        'transaction.amount' => 'required',
-        'transaction.user_id' => 'required',
-        'transaction.date' => 'sometimes',
-        'transaction.description' => 'sometimes',
-    ];
+    public function rules()
+    {
+        return [
+            'transaction.amount' => ['required', new Purchase()],
+            'transaction.user_id' => 'required',
+            'transaction.date' => 'sometimes',
+            'transaction.description' => 'sometimes',
+        ];
+    }
 
     public function store()
     {
         $this->validate();
 
         $this->transaction->setExpenseTypeAttribute();
-
         $this->transaction->save();
 
         return redirect()->route('expenses.index');

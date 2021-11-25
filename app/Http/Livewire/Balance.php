@@ -9,7 +9,6 @@ class Balance extends Component
 {
     public function render()
     {
-
         $transactions = Transaction::fromAuthenticatedUser();
 
         return view('livewire.balance', [

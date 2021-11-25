@@ -103,6 +103,11 @@ class Transaction extends Model
         return $query->where('status_id', Status::pending()->first()->id);
     }
 
+    public function scopeRejected($query): Builder
+    {
+        return $query->where('status_id', Status::rejected()->first()->id);
+    }
+
     public function scopeAccepted($query): Builder
     {
         return $query->where('status_id', Status::accepted()->first()->id);

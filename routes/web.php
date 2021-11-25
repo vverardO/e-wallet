@@ -9,6 +9,7 @@ use App\Http\Livewire\Transactions\Expenses\Index as ExpensesIndex;
 use App\Http\Livewire\Transactions\Expenses\Create as ExpensesCreate;
 use App\Http\Livewire\Transactions\Checks\Index as ChecksIndex;
 use App\Http\Livewire\Transactions\Checks\Create as ChecksCreate;
+use App\Http\Livewire\Transactions\Checks\Show as CheckShow;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,13 +29,18 @@ Route::get('/register', Register::class)->name('register');
 Route::middleware('auth')->group(function () {
     Route::get('/', Balance::class)->name('balance');
     Route::prefix('transactions')->group(function () {
-        Route::get('/expenses', ExpensesIndex::class)->name('expenses.index');
-        Route::get('/expenses/create', ExpensesCreate::class)->name('expenses.create');
-        Route::get('/checks', ChecksIndex::class)->name('checks.index');
-        Route::get('/checks/create', ChecksCreate::class)->name('checks.create');
-    });
-    Route::prefix('checks-control')->group(function () {
-        Route::get('/', ChecksControlIndex::class)->name('checks-control.index');
-        Route::get('/edit/{id}', ChecksControlEdit::class)->name('checks-control.edit');
+        Route::prefix('expenses')->group(function () {
+            Route::get('/', ExpensesIndex::class)->name('expenses.index');
+            Route::get('/create', ExpensesCreate::class)->name('expenses.create');
+        });
+        Route::prefix('checks')->group(function () {
+            Route::get('/', ChecksIndex::class)->name('checks.index');
+            Route::get('/create', ChecksCreate::class)->name('checks.create');
+            Route::get('/show/{id}', CheckShow::class)->name('checks.show');
+        });
+        Route::prefix('checks-control')->group(function () {
+            Route::get('/', ChecksControlIndex::class)->name('checks-control.index');
+            Route::get('/edit/{id}', ChecksControlEdit::class)->name('checks-control.edit');
+        });
     });
 });

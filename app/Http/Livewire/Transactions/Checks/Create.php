@@ -19,7 +19,7 @@ class Create extends Component
     protected $rules = [
         'transaction.amount' => 'required',
         'transaction.user_id' => 'required',
-        'transaction.description' => 'sometimes',
+        'transaction.description' => 'required',
         'image' => 'required|image|mimes:jpg,jpeg,png,svg,gif|max:2048',
     ];
 

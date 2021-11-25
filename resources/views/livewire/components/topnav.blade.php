@@ -9,6 +9,7 @@
                 <li><a href="{{route('checks-control.index')}}" class="nav-link px-2 {{(request()->routeIs('checks-control.*')) ? 'link-primary' : 'link-dark'}}">Check Control</a></li>
             @endif
         </ul>
+        <span>{{Auth::user()->name}} welcome!</span>
         <div class="col-md-3 text-end">
             <button type="button" wire:click="logout" class="btn btn-primary">Logout</button>
         </div>

@@ -1,7 +1,16 @@
 @section('title') Register @endsection
 <div>
+    @error('email')
+        <div class="alert alert-danger" role="alert">
+            {{ $message }}
+        </div>
+    @enderror
     <form wire:submit.prevent="register" >
         <h1 class="h3 mb-3 fw-normal">Please register</h1>
+        <div class="form-floating">
+            <input type="text" wire:model="name" class="form-control" id="floatingInput" placeholder="name">
+            <label for="floatingInput">Name</label>
+        </div>
         <div class="form-floating">
             <input type="email" wire:model="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
