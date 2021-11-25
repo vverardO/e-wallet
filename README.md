@@ -17,3 +17,5 @@ php artisan serve
 Será cadastrado por padrão um usuário com email "admin@admin.com" e senha "password".
 
 Cadastre a quantidade de usuários que achar necessário.
+
+O sistema encontra-se hospedado no [Heroku](http://powerful-eyrie-36129.herokuapp.com/login).
