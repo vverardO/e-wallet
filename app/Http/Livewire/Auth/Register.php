@@ -44,7 +44,7 @@ class Register extends Component
         return redirect()->route('balance');
     }
 
-    public function mount()
+    public function mount(): void
     {
         $this->user = new User();
     }

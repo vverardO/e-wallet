@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Transactions\Checks;
 
-use App\Models\Status;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -41,7 +40,7 @@ class Create extends Component
         return redirect()->route('checks.index');
     }
 
-    public function mount()
+    public function mount(): void
     {
         $transactionClass = app(Transaction::class);
         $this->transaction = $transactionClass;

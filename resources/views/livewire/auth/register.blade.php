@@ -8,12 +8,12 @@
     <form wire:submit.prevent="register" >
         <h1 class="h3 mb-3 fw-normal">Please register</h1>
         <div class="form-floating">
-            <input type="text" wire:model="name" class="form-control" id="floatingInput" placeholder="name">
-            <label for="floatingInput">Name</label>
+            <input type="text" wire:model="name" class="form-control" id="floatingName" placeholder="name">
+            <label for="floatingName">Name</label>
         </div>
         <div class="form-floating">
-            <input type="email" wire:model="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input type="email" wire:model="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+            <label for="floatingEmail">Email address</label>
         </div>
         <div class="form-floating">
             <input type="password" wire:model.lazy="password" class="form-control" id="floatingPassword" placeholder="Password">
@@ -61,8 +61,16 @@
             z-index: 2;
         }
 
+        .form-signin input[type="text"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
         .form-signin input[type="email"] {
             margin-bottom: -1px;
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
         }

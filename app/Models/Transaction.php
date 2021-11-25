@@ -53,29 +53,29 @@ class Transaction extends Model
         return self::TYPE_CHECK;
     }
 
-    public function setExpenseTypeAttribute()
+    public function setExpenseTypeAttribute(): void
     {
-        return $this->type = self::TYPE_EXPENSE;
+        $this->type = self::TYPE_EXPENSE;
     }
 
-    public function setChecksTypeAttribute()
+    public function setChecksTypeAttribute(): void
     {
-        return $this->type = self::TYPE_CHECK;
+        $this->type = self::TYPE_CHECK;
     }
 
-    public function setStatusPendingAttribute()
+    public function setStatusPendingAttribute(): void
     {
-        return $this->status_id = Status::pending()->first()->id;
+        $this->status_id = Status::pending()->first()->id;
     }
 
-    public function setStatusAcceptedAttribute()
+    public function setStatusAcceptedAttribute(): void
     {
-        return $this->status_id = Status::accepted()->first()->id;
+        $this->status_id = Status::accepted()->first()->id;
     }
 
-    public function setStatusRejectedAttribute()
+    public function setStatusRejectedAttribute(): void
     {
-        return $this->status_id = Status::rejected()->first()->id;
+        $this->status_id = Status::rejected()->first()->id;
     }
 
     public function isCheck(): bool

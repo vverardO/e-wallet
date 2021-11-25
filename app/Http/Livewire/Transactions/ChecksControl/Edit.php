@@ -21,7 +21,7 @@ class Edit extends Component
         return view('livewire.transactions.checks-control.edit');
     }
 
-    public function mount($id)
+    public function mount($id): void
     {
         $transactionClass = app(Transaction::class);
         $this->transaction = $transactionClass->find($id);

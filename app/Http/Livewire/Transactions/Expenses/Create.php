@@ -11,7 +11,7 @@ class Create extends Component
 {
     public Transaction $transaction;
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'transaction.amount' => ['required', new Purchase()],
@@ -31,7 +31,7 @@ class Create extends Component
         return redirect()->route('expenses.index');
     }
 
-    public function mount()
+    public function mount(): void
     {
         $transactionClass = app(Transaction::class);
         $this->transaction = $transactionClass;
