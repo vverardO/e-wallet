@@ -6,7 +6,7 @@ Install dependencies and start the server.
 
 ```sh
 git clone https://github.com/vverardO/turnoverbnb-code-challenge.git
-cd turnoverbnb-code-challenge
+cd e-wallet
 composer install
 php artisan key:generate
 php artisan migrate --seed
