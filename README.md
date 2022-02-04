@@ -5,7 +5,7 @@ It has as a requirement [Laravel](https://laravel.com/docs/8.x) v8+ and [Laravel
 Install dependencies and start the server.
 
 ```sh
-git clone https://github.com/vverardO/turnoverbnb-code-challenge.git
+git clone https://github.com/vverardO/e-wallet.git
 cd e-wallet
 composer install
 php artisan key:generate
